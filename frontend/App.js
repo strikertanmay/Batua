@@ -8,21 +8,24 @@ import * as constants from './constants';
 
 const images = [
     require('./assets/icon.png')
-]
+];
 
-export default function App() {
+export default class App extends React.Component  {
   state = {
     isLoadingComplete :  false
   }
 
   handleResourseAsync = async() => {
-      const cacheImages = images.map(img => {
-        return Asset.fromModule(image).downloadAsync();
-      })
+    
+    const cacheImages = images.map(img => {
+        return Asset.fromModule(image).downloadAsync()
+      });
 
       return Promise.all(cacheImages);
-  }
+  };
+
   render(){
+
     if(!this.state.isLoadingComplete && !this.props.skipLoadingScreen){
         return(
           <AppLoading
@@ -31,17 +34,14 @@ export default function App() {
             onFinish = { () => this.setState({isLoadingComplete : true})}
           
           />
-        )
+        );
     }
-    else{
-      return (
+       return (
         <View style={styles.container}>
           <Navigation />
         </View>
-      )
-    }
-    
-  }
+      );
+    };
 }
 
 const styles = StyleSheet.create({
