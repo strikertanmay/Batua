@@ -2,11 +2,11 @@ import React from 'react';
 import {Image} from 'react-native';
 import {createAppContainer, createStackNavigator} from 'react-navigation';
 
-import Welcome from '../screens/welcome';
-// import Login from '../screens/login';
-// import Otp from '../screens/otp';
-// import Register from '../screens/register'
-// import Optselect from '../screens/optselect';
+import Welcome from '../screens/Welcome';
+// import Login from '../screens/Login';
+// import Otp from '../screens/Otp';
+// import Register from '../screens/Register'
+// import Optselect from '../screens/Optselect';
 
 import {theme} from '../constants';
 import { fromBinary } from 'uuid-js';
