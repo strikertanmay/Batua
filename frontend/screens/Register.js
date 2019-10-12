@@ -5,21 +5,45 @@ import {
   StyleSheet,
   Image,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  RoundButton
 } from "react-native";
 
 const Register = props => {
-  const numInputHandler = () => {};
+  const numInputHandler = (navigation) => { };
+
   return (
-    <View
-      style={{ flexDirection: "column", justifyContent: "center", flex: 1 }}
-    >
-      <View>
+    <View>
+      <View style={styles.inputContainer}>
+        <Text>First Name</Text>
+        <TextInput
 
-      </View>
+          style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
+          onChangeText={numInputHandler}
 
-      <View>
+        />
+        <Text>Last Name</Text>
+        <TextInput
 
+          style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
+          onChangeText={numInputHandler}
+
+        />
+
+        <Text>Date of Birth</Text>
+        <TextInput
+
+          dataDetectorTypes='calendarEvent'
+          style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
+          onChangeText={numInputHandler}
+
+        />
+        <RoundButton
+          text={"Submit"}
+          handler={() => {
+            numInputHandler(props.navigation);
+          }}
+        ></RoundButton>
       </View>
     </View>
   );

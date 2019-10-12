@@ -5,12 +5,15 @@ import Welcome from './screens/Welcome';
 import { useScreens } from 'react-native-screens';
 
 import AppNavigator from './Navigation';
+// import Register from './screens/Register';
 
 useScreens();
 
 export default function App() {
   return (
       <AppNavigator />
+      
+      // <Register/>
   );
 }
 
