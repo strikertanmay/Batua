@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Animated, Dimensions, Image, FlatList, Modal, StyleSheet, ScrollView } from 'react-native';
 
 import { Button, Block, Text } from '../components';
-import { themes } from '../constants';
+import { theme } from '../constants';
 
 const { width, height } = Dimensions.get('window');
 
@@ -81,13 +81,13 @@ class Welcome extends Component {
                     <Text h1 center bold>One Family
                     <Text h1 primary>One Account</Text>
                     </Text>
-                    <Text h3 gray2 style = {{marginTop : themes.size.padding/2}}>Pay Exacty the way you want</Text>
+                    <Text h3 gray2 style = {{marginTop : theme.size.padding/2}}>Pay Exacty the way you want</Text>
                 </Block>
             <Block center middle>
                 {this.renderIllustrations()}
                 {this.renderSteps()}
             </Block>
-            <Block middle flex={0.5} margin= {[0, themes.size.padding = 2]}>
+            <Block middle flex={0.5} margin= {[0, theme.size.padding = 2]}>
                 <Button gradient onPress = {() => navigation.navigate('Login')}>
                     <Text center semibold white>Go Ahead</Text>
                 </Button>
@@ -111,7 +111,7 @@ export default Welcome;
 const styles = StyleSheet.create({
     stepsContainer: {
       position: 'absolute',
-      bottom: themes.sizes.base * 3,
+      bottom: theme.sizes.base * 3,
       right: 0,
       left: 0,
     },

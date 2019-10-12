@@ -10,7 +10,7 @@ import Welcome from '../screens/Welcome';
 // import Optselect from '../screens/Optselect';
 
 import {theme} from '../constants';
-import { fromBinary } from 'uuid-js';
+
 
 const screens = createStackNavigator({
     Welcome,
