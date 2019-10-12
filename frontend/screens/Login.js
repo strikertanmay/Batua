@@ -1,11 +1,34 @@
 import React from 'react'
-import { Text, View, StyleSheet} from 'react-native';
+import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native';
 
 const Login = (props) => {
 
+  const numInputHandler = () =>{
+
+  }
   return(
-      <View>
-        <Text>Hello World</Text>
+      <View style={{flexDirection: "column", justifyContent: "center", flex:1}}>
+        <View>
+              <Image source ={require('../assets/logo_text_black.png')} style={{width:220 , height:60}}/>
+        </View>
+        <View style={styles.textContainer}>
+              <Text style ={styles.textCaption}>One family, One Account</Text>
+        </View>
+      
+        <View style={styles.inputContainer}>
+        <Text>Phone Number</Text>    
+            <TextInput 
+                dataDetectorTypes = 'phoneNumber'
+                keyboardType = 'number-pad'
+                style = {{borderColor:'gray', borderWidth: 1, height: 40}}
+                onChangeText = {numInputHandler}
+                maxLength = {10}
+            />
+            <TouchableOpacity>
+                  <Text>Send OTP</Text>
+            </TouchableOpacity>
+        </View>
+        
       </View>
   ) 
 }
@@ -14,7 +37,18 @@ const Login = (props) => {
 export default Login;
 
 const styles = StyleSheet.create({
-    Container: {
-    
+    textContainer: {
+      justifyContent:"center", 
+      // flexDirection:"row"
+      alignContent:"center"
     },
+    textCaption :{
+      marginTop :  15,
+      fontSize : 20
+    },
+    inputContainer : {
+      marginTop : 50,
+
+    }
+
   })
