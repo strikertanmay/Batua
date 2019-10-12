@@ -1,7 +1,11 @@
-import React, {Component} from 'react';
-import {Stylesheet} from 'react-native';
-import {Button , Block, Text} from '../components';
-import * as themes from '../constants/theme';
+import React, { Component } from 'react'
+import { Animated, Dimensions, Image, FlatList, Modal, StyleSheet, ScrollView } from 'react-native';
+
+import { Button, Block, Text } from '../components';
+import { themes } from '../constants';
+
+const { width, height } = Dimensions.get('window');
+
 
 class Welcome extends Component {
     static navigationOptions = {
@@ -107,7 +111,7 @@ export default Welcome;
 const styles = StyleSheet.create({
     stepsContainer: {
       position: 'absolute',
-      bottom: theme.sizes.base * 3,
+      bottom: themes.sizes.base * 3,
       right: 0,
       left: 0,
     },

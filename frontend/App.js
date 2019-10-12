@@ -7,7 +7,7 @@ import {Block} from './components';
 import * as constants from './constants';
 
 const images = [
-    require('./assets/icon.png')
+    require('./assets/images/icon.png')
 ];
 
 export default class App extends React.Component  {
