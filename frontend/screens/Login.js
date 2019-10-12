@@ -14,10 +14,10 @@ const Login = (props) => {
         <View style={styles.textContainer}>
               <Text style ={styles.textCaption}>One family, One Account</Text>
         </View>
-      
+
         <View style={styles.inputContainer}>
-        <Text>Phone Number</Text>    
-            <TextInput 
+        <Text>Phone Number</Text>
+            <TextInput
                 dataDetectorTypes = 'phoneNumber'
                 keyboardType = 'number-pad'
                 style = {{borderColor:'gray', borderWidth: 1, height: 40}}
@@ -28,24 +28,16 @@ const Login = (props) => {
                   <Text>Send OTP</Text>
             </TouchableOpacity>
         </View>
-        
-      </View>
-  ) 
-}
 
-const Login = props => {
-  return (
-    <View>
-      <Text>Login Screen</Text>
-    </View>
-  );
-};
+      </View>
+  )
+}
 
 export default Login;
 
 const styles = StyleSheet.create({
     textContainer: {
-      justifyContent:"center", 
+      justifyContent:"center",
       // flexDirection:"row"
       alignContent:"center"
     },
