@@ -12,6 +12,11 @@ import RoundButton from "../component/RoundButton";
 
 const Otp = props => {
   const numInputHandler = () => {};
+
+  const submitHandler = navigation => {
+    navigation.replace("Register");
+  };
+
   return (
     <View
       style={{ flexDirection: "column", justifyContent: "center", flex: 1 }}
@@ -39,7 +44,7 @@ const Otp = props => {
         <RoundButton
           text={"Verify OTP"}
           handler={() => {
-            numInputHandler(props.navigation);
+            submitHandler(props.navigation);
           }}
         ></RoundButton>
       </View>

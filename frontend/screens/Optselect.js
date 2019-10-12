@@ -3,13 +3,17 @@ import { Text, View, StyleSheet, Image } from "react-native";
 import SmallRoundButton from "../component/SmallRoundButton";
 
 const Otpselect = props => {
+  const submitHandler = navigation => {
+    navigation.replace("Payment");
+  };
+
   return (
     <View style={styles.Container}>
       <View style={styles.new_wallet}>
         <View style={styles.section_header}>
           <View style={styles.heading}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>CREATE NEW</Text>
-            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>WALLET</Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>CREATE NEW</Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>WALLET</Text>
           </View>
           <View style={styles.image}>
             <Image source={require("../assets/opt_1.png")} />
@@ -17,18 +21,26 @@ const Otpselect = props => {
         </View>
         <View>
           <Text style={styles.content}>
-          Create a new wallet, add money and members and start doing payments instantly.
+            Create a new wallet, add money and members and start doing payments
+            instantly.
           </Text>
         </View>
         <View>
-          <SmallRoundButton text={"CREATE"}/>
+          <SmallRoundButton
+            text={"CREATE"}
+            handler={() => {
+              submitHandler(props.navigation);
+            }}
+          />
         </View>
       </View>
       <View style={styles.join_wallet}>
         <View style={styles.section_header}>
           <View style={styles.heading}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>JOIN EXISTING</Text>
-            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>WALLET</Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+              JOIN EXISTING
+            </Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>WALLET</Text>
           </View>
           <View style={styles.image}>
             <Image source={require("../assets/opt_2.png")} />
@@ -36,7 +48,8 @@ const Otpselect = props => {
         </View>
         <View>
           <Text style={styles.content}>
-          When joining an existing wallet, you will be added as a member and you can start doing payments instantly.
+            When joining an existing wallet, you will be added as a member and
+            you can start doing payments instantly.
           </Text>
         </View>
       </View>
@@ -56,7 +69,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FCFCFC",
     width: "100%",
-    justifyContent: "center",
+    justifyContent: "center"
   },
 
   join_wallet: {
@@ -72,10 +85,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   heading: {
-    paddingLeft: 20,
+    paddingLeft: 20
   },
   content: {
     padding: 20,
-    color: '#777777'
+    color: "#777777"
   }
 });

@@ -5,43 +5,43 @@ import {
   StyleSheet,
   Image,
   TextInput,
-  TouchableOpacity,
-  RoundButton
+  TouchableOpacity
 } from "react-native";
 
+import RoundButton from "../component/RoundButton";
+
 const Register = props => {
-  const numInputHandler = (navigation) => { };
+  const numInputHandler = navigation => {};
+
+  const submitHandler = navigation => {
+    navigation.replace("OptSelect");
+  };
 
   return (
     <View>
       <View style={styles.inputContainer}>
         <Text>First Name</Text>
         <TextInput
-
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
           onChangeText={numInputHandler}
-
         />
         <Text>Last Name</Text>
         <TextInput
-
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
           onChangeText={numInputHandler}
-
         />
 
         <Text>Date of Birth</Text>
         <TextInput
-
-          dataDetectorTypes='calendarEvent'
+          dataDetectorTypes="calendarEvent"
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
           onChangeText={numInputHandler}
-
         />
+
         <RoundButton
           text={"Submit"}
           handler={() => {
-            numInputHandler(props.navigation);
+            submitHandler(props.navigation);
           }}
         ></RoundButton>
       </View>
@@ -64,15 +64,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     marginTop: 50
   },
-  new_wallet: {
-
-
-
-  },
-  join_wallet: {
-
-
-
-
-  }
+  new_wallet: {},
+  join_wallet: {}
 });
