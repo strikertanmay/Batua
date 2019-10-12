@@ -1,13 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
-// import Welcome from './screens/Welcome';
-import Login from './screens/Login';
+import Welcome from './screens/Welcome';
+// import Login from './screens/Login';
+// import Otp from './screens/Otp';
+// import Register from './screens/Register';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Login />
-    </View>
+  
+      <Welcome />
+    
   );
 }
 
