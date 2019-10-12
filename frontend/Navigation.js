@@ -15,7 +15,8 @@ const initialFlowNavigator = createStackNavigator(
     Otp,
     OptSelect
   },{
-      headerMode: 'none'
+      headerMode: 'none',
+      initialRouteName: 'OptSelect'
   }
 );
 

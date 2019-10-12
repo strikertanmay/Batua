@@ -8,6 +8,8 @@ import {
   TouchableOpacity
 } from "react-native";
 
+import RoundButton from "../component/RoundButton";
+
 const Otp = props => {
   const numInputHandler = () => {};
   return (
@@ -25,7 +27,7 @@ const Otp = props => {
       </View>
 
       <View style={styles.inputContainer}>
-        <Text>Phone Number</Text>
+        <Text>Enter OTP</Text>
         <TextInput
           dataDetectorTypes="phoneNumber"
           keyboardType="number-pad"
@@ -34,9 +36,12 @@ const Otp = props => {
           maxLength={4}
         />
 
-        <TouchableOpacity>
-          <Text>Send OTP</Text>
-        </TouchableOpacity>
+        <RoundButton
+          text={"Verify OTP"}
+          handler={() => {
+            numInputHandler(props.navigation);
+          }}
+        ></RoundButton>
       </View>
     </View>
   );

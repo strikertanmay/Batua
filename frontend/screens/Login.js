@@ -1,53 +1,67 @@
-import React from 'react'
-import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native';
+import React from "react";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TextInput,
+  TouchableOpacity
+} from "react-native";
 
-const Login = (props) => {
+import RoundButton from "../component/RoundButton";
 
-  const numInputHandler = () =>{
+const Login = props => {
+  const numInputHandler = navigation => {
+    navigation.replace("Otp");
+  };
 
-  }
-  return(
-      <View style={{flexDirection: "column", justifyContent: "center", flex:1}}>
-        <View>
-              <Image source ={require('../assets/logo_text_black.png')} style={{width:220 , height:60}}/>
-        </View>
-        <View style={styles.textContainer}>
-              <Text style ={styles.textCaption}>One family, One Account</Text>
-        </View>
-
-        <View style={styles.inputContainer}>
-        <Text>Phone Number</Text>
-            <TextInput
-                dataDetectorTypes = 'phoneNumber'
-                keyboardType = 'number-pad'
-                style = {{borderColor:'gray', borderWidth: 1, height: 40}}
-                onChangeText = {numInputHandler}
-                maxLength = {10}
-            />
-            <TouchableOpacity>
-                  <Text>Send OTP</Text>
-            </TouchableOpacity>
-        </View>
-
+  return (
+    <View
+      style={{ flexDirection: "column", justifyContent: "center", flex: 1 }}
+    >
+      <View>
+        <Image
+          source={require("../assets/logo_text_black.png")}
+          style={{ width: 220, height: 60 }}
+        />
       </View>
-  )
-}
+      <View style={styles.textContainer}>
+        <Text style={styles.textCaption}>One family, One Account</Text>
+      </View>
+
+      <View style={styles.inputContainer}>
+        <Text>Phone Number</Text>
+        <TextInput
+          dataDetectorTypes="phoneNumber"
+          keyboardType="number-pad"
+          style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
+          onChangeText={numInputHandler}
+          maxLength={10}
+        />
+        <RoundButton
+          text={"Send OTP"}
+          handler={() => {
+            numInputHandler(props.navigation);
+          }}
+        ></RoundButton>
+      </View>
+    </View>
+  );
+};
 
 export default Login;
 
 const styles = StyleSheet.create({
-    textContainer: {
-      justifyContent:"center",
-      // flexDirection:"row"
-      alignContent:"center"
-    },
-    textCaption :{
-      marginTop :  15,
-      fontSize : 20
-    },
-    inputContainer : {
-      marginTop : 50,
-
-    }
-
-  })
+  textContainer: {
+    justifyContent: "center",
+    // flexDirection:"row"
+    alignContent: "center"
+  },
+  textCaption: {
+    marginTop: 15,
+    fontSize: 20
+  },
+  inputContainer: {
+    marginTop: 50
+  }
+});
