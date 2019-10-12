@@ -12,12 +12,12 @@ import Payment from './screens/Payment';
 import Profile from './screens/Profile';
 
 
-// const mainFlowNavigator = createMaterialBottomTabNavigator(
-//   {
-//     Payment,
-//     Profile
-//   }
-// );
+const mainFlowNavigator = createMaterialBottomTabNavigator(
+  {
+    Payment,
+    Profile
+  }
+);
 
 const initialFlowNavigator = createStackNavigator(
   {
@@ -29,6 +29,7 @@ const initialFlowNavigator = createStackNavigator(
     OptSelect,
     Register,
     Payment,
+    MainFlow: mainFlowNavigator
   },{
       headerMode: 'none',
   }
