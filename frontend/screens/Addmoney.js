@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import {
   Text,
   View,
@@ -7,10 +7,23 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
+import axios from 'axios';
 
 import RoundButton from "../component/RoundButton";
 
+const [money, setMoney] = useState('');
+
+const numInputHandler = (enteredData) => {
+    setMoney(enteredData);
+}
+
 const getStartedHandler = (navigation) => {
+    // const moneyData = money;
+    // axios.post(" ", moneyData).then((data) => {
+    //     setMoney(' ');
+    // }).catch(err => {
+    //     console.log(err);
+    // })
   navigation.navigate('Login');
 };
 
@@ -34,6 +47,7 @@ const Addmoney = props => {
           keyboardType="number-pad"
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
           onChangeText={numInputHandler}
+          value = {money}
           maxLength={8}
         />
       <View>

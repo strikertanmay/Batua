@@ -3,16 +3,14 @@ import {
   Text,
   View,
   StyleSheet,
-  ImageBackground,
   Image,
-  TouchableOpacity
 } from "react-native";
 
-import RoundButton from "../component/RoundButton";
+// import RoundButton from "../component/RoundButton";
 
-const getStartedHandler = (navigation) => {
-  navigation.navigate('Login');
-};
+// const getStartedHandler = (navigation) => {
+//   navigation.navigate('Login');
+// };
 
 const Addmoney = props => {
   return (

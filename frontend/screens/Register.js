@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Text,
   View,
@@ -7,14 +7,43 @@ import {
   TextInput,
   TouchableOpacity
 } from "react-native";
+import axios from 'axios';
 
 import RoundButton from "../component/RoundButton";
 
+
 const Register = props => {
-  const numInputHandler = navigation => {};
+
+  const [userData, setUserData] = useState({fnmae : ' ',  lname : ' ', age : ' ', loading : false})
+
+  const [isFill, setisFill] = useState(false);
+  const registerInputHandler = (enteredData) => {
+            setUserData({fname : enteredData.fname , lname = enteredData.lname, age = enteredData.age});
+            setisFill(true);
+  };
 
   const submitHandler = navigation => {
-    navigation.replace("OptSelect");
+
+    // const userdata =  {
+    //   fname : userData.fname,
+    //   lname : userData.lname,
+    //   age : userData.age
+    // }
+
+    // setUserData({loading : true})
+    // axios.post(" ", userdata).then(data => {
+    //   setUserData({fnmae : ' ', lname : ' ', age: '' , loading:false})
+    // }).catch(err => {
+    //   console.log(err);
+    // })
+
+    if(isFill){
+      navigation.replace("OptSelect");
+    }
+    else{
+      alert('Please submit all the details')
+    }
+    
   };
 
   return (
@@ -23,19 +52,26 @@ const Register = props => {
         <Text>First Name</Text>
         <TextInput
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
-          onChangeText={numInputHandler}
+          onChangeText={registerInputHandler}
+          name = {fname}
+          value = {userData.fname}
         />
         <Text>Last Name</Text>
         <TextInput
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
-          onChangeText={numInputHandler}
+          onChangeText={registerInputHandler}
+          name = {lname}
+          value = {userData.lname}
         />
 
-        <Text>Date of Birth</Text>
+        <Text>Age</Text>
         <TextInput
-          dataDetectorTypes="calendarEvent"
+          keyboardType="number-pad"
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
-          onChangeText={numInputHandler}
+          onChangeText={registerInputHandler}
+          name = {age}
+          maxLength = {2}
+          value = {userData.age}
         />
 
         <RoundButton

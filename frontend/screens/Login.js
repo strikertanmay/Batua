@@ -1,17 +1,33 @@
-import React from "react";
+import React , {useState} from "react";
 import {
   Text,
   View,
   StyleSheet,
   Image,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
+import axios from 'axios';
+
 
 import RoundButton from "../component/RoundButton";
 
-const Login = props => {
-  const numInputHandler = navigation => {
+const Login = (props) => {
+  const [num , setNum] = useState('');
+
+  const numHandler = (enteredNum) => {
+    setNum(enteredNum.toString());
+    // console.log(num);
+  }
+  const numSubmitHandler = (navigation) => {
+   //some function to pass the state
+  //  const numData = num;
+  //  axios.post(" ", numData).then((data) => {
+  //    setNum(' ');
+  //  }).catch(err => {
+  //    console.log(err);
+  //  })
+
     navigation.replace("Otp");
   };
 
@@ -35,13 +51,15 @@ const Login = props => {
           dataDetectorTypes="phoneNumber"
           keyboardType="number-pad"
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
-          onChangeText={numInputHandler}
+          onChangeText={numHandler}
+          name = {num}
+          value = {num}
           maxLength={10}
         />
         <RoundButton
           text={"Send OTP"}
           handler={() => {
-            numInputHandler(props.navigation);
+            numSubmitHandler(props.navigation);
           }}
         ></RoundButton>
       </View>

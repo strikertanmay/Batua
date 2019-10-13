@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import {
   Text,
   View,
@@ -11,10 +11,21 @@ import {
 import RoundButton from "../component/RoundButton";
 
 const Otp = props => {
-  const numInputHandler = () => {};
+  const [otp , setOtp] = useState('');
+  
+  const otpInputHandler = (enteredNum) => {
+    setOtp(enteredNum.toString());
+    // console.log(num);
+  }
 
   const submitHandler = navigation => {
-    navigation.replace("Register");
+    if(otp === '1234'){
+      navigation.replace("Register");
+    }
+    else{
+      alert('Sorry ! Please try Again');
+    }
+    
   };
 
   return (
@@ -37,7 +48,8 @@ const Otp = props => {
           dataDetectorTypes="phoneNumber"
           keyboardType="number-pad"
           style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
-          onChangeText={numInputHandler}
+          onChangeText={otpInputHandler}
+          value = {otp}
           maxLength={4}
         />
 
