@@ -20,6 +20,7 @@ import Payment from "./screens/Payment";
 import Profile from "./screens/Profile";
 import Family from "./screens/Family";
 import AddMoney from './screens/Addmoney';
+import PersonTransactionScreen from './screens/PersonTransactionScreen';
 
 const PaymentNavigator = createStackNavigator({
   Pay: {
@@ -50,7 +51,11 @@ const FamilyNavigator = createStackNavigator({
         flex: 1
       }
     }
+  },
+  PersonTransactionScreen: {
+    screen: PersonTransactionScreen
   }
+
 });
 
 const ProfileNavigator = createStackNavigator({

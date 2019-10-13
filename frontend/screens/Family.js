@@ -1,14 +1,21 @@
 import React from "react";
-import { Text, View, StyleSheet, ScrollView, Image, FlatList } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  FlatList
+} from "react-native";
 
-import { MEMBERS } from '../constants/dummy-data';
+import { MEMBERS } from "../constants/dummy-data";
 import ListCard from "../component/ListCard";
 
-const renderListItem = (data) => {
-  return (<ListCard data={data.item}/>);
-};
-
 const Family = props => {
+  const renderListItem = data => {
+    return <ListCard data={data.item} navigation={props.navigation} />;
+  };
+
   return (
     <ScrollView>
       <View>
@@ -17,12 +24,18 @@ const Family = props => {
             source={require("../assets/wallet.png")}
             style={{ height: 100, width: 180, resizeMode: "stretch" }}
           />
-          <Text style={{ fontSize: 24, marginTop: 20, color: '#444444' }}>Aayush's Family</Text>
+          <Text style={{ fontSize: 24, marginTop: 20, color: "#444444" }}>
+            Aayush's Family
+          </Text>
         </View>
       </View>
       <View style={styles.member}>
         <Text style={{ fontSize: 16, marginBottom: 20 }}>MEMBERS</Text>
-        <FlatList data={MEMBERS} renderItem={renderListItem}></FlatList>
+        <FlatList
+          keyExtractor={(item, index) => item.unique_id}
+          data={MEMBERS}
+          renderItem={renderListItem}
+        ></FlatList>
       </View>
     </ScrollView>
   );
