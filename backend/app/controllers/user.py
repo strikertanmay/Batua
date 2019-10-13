@@ -76,28 +76,21 @@ def refresh():
     return jsonify({"ok": True, "data": ret}), 200
 
 
-@app.route("/user", methods=["GET", "DELETE", "PATCH"])
+@app.route("/user", methods=["GET", "POST", "PATCH"])
 @jwt_required
 def user():
     """ route read user """
+
+    current_user = get_jwt_identity()
     if request.method == "GET":
-        query = request.args
-        data = mongo.db.users.find_one(query, {"_id": 0})
-        name = data["name"]
-        email = data["email"]
-        return jsonify({"ok": True, "name": name, "email": email}), 200
+        # query = request.args
+        data = mongo.db.users.find_one({"phone_number": current_user["phone_number"]})
+        return str(data)
 
     data = request.get_json()
-    if request.method == "DELETE":
-        if data.get("email", None) is not None:
-            db_response = mongo.db.users.delete_one({"email": data["email"]})
-            if db_response.deleted_count == 1:
-                response = {"ok": True, "message": "record deleted"}
-            else:
-                response = {"ok": True, "message": "no record found"}
-            return jsonify(response), 200
-        else:
-            return jsonify({"ok": False, "message": "Bad request parameters!"}), 400
+    if request.method == "POST":
+        user_data = mongo.db.users.find_one({"phone_number": current_user["phone_number"]})
+        return str(list(mongo.db.users.find({"unique_id": user_data["unique_id"]})))
 
     if request.method == "PATCH":
         if data.get("query", {}) != {}:
@@ -105,3 +98,4 @@ def user():
             return jsonify({"ok": True, "message": "record updated"}), 200
         else:
             return jsonify({"ok": False, "message": "Bad request parameters!"}), 400
+
