@@ -4,7 +4,7 @@ import { StyleSheet, View, TouchableNativeFeedback, Text } from "react-native";
 
 const RoundButton = props => {
   return (
-    <View style={{ ...styles.button_container, backgroundColor: "#222222" }}>
+    <View style={{ ...styles.button_container, backgroundColor: "#222222", ...props.style }}>
       <TouchableNativeFeedback onPress={props.handler}>
         <View style={styles.button_content}>
           <Text style={styles.button_text}>{props.text}</Text>

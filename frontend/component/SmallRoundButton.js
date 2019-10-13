@@ -6,7 +6,7 @@ import Colors from '../constants/Colors';
 
 const SmallRoundButton = props => {
   return (
-    <View style={{ ...styles.button_container }}>
+    <View style={{ ...styles.button_container, ...props.style }}>
       <TouchableNativeFeedback onPress={props.handler}>
         <View style={styles.button_content}>
           <Text style={styles.button_text}>{props.text}</Text>
