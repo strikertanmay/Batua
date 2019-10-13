@@ -4,6 +4,7 @@ import {
   View,
   StyleSheet,
   ImageBackground,
+  TextInput,
   Image,
   TouchableOpacity
 } from "react-native";
@@ -15,11 +16,12 @@ const getStartedHandler = (navigation) => {
 };
 
 const Addmoney = props => {
+
+  const numInputHandler = navigation => {};
+
   return (
     <View style={styles.Container}>
-        <View>
-            <Text>Add Money</Text>
-        </View>
+
 
       <View>
         <Image
@@ -28,11 +30,11 @@ const Addmoney = props => {
         />
       </View>
 
-      <Text>Enter Amount</Text>
+      <Text style={{ marginTop: 50, fontSize: 18 }}>Enter Amount</Text>
         <TextInput
           dataDetectorTypes="phoneNumber"
           keyboardType="number-pad"
-          style={{ borderColor: "gray", borderWidth: 1, height: 40 }}
+          style={{ borderColor: "gray", borderWidth: 1, height: 40, width: 200, marginTop: 10 }}
           onChangeText={numInputHandler}
           maxLength={8}
         />
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   background_image: {
-    width: 80,
+    width: 170,
     height: 120,
     resizeMode: "stretch"
   },

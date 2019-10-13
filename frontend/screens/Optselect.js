@@ -4,7 +4,7 @@ import SmallRoundButton from "../component/SmallRoundButton";
 
 const Otpselect = props => {
   const submitHandler = navigation => {
-    navigation.replace("Payment");
+    navigation.replace("MainFlow");
   };
 
   return (
